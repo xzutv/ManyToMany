@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Author {
 
     @Id
@@ -33,6 +34,11 @@ public class Author {
 
     public List<Book> getBooks() {
         return books;
+    }
+
+    
+    public String getName() {
+        return name;
     }
 
     @Override

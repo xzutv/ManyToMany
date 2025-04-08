@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
 public class Book {
 
     @Id
@@ -14,6 +14,9 @@ public class Book {
     @Column(length = 30)
     private String title;
 
+    @Column(length = 20)
+    private String genre;
+
     @Column(length = 10)
     private String publicationYear;
 
@@ -22,9 +25,10 @@ public class Book {
 
     public Book() {}
 
-    public Book(String title, String publicationYear) {
+    public Book(String title, String genre, String publicationYear) {
         this.title = title;
         this.publicationYear = publicationYear;
+        this.genre = genre;
         this.readers = new ArrayList<Reader>();
     }
 
@@ -38,10 +42,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", publicationYear=" + publicationYear +
-                '}';
+        return "Title " + title + " Genre: " + genre + " Year: " + publicationYear;
     }
+
 }
